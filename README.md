@@ -1,3 +1,11 @@
+cd public
+
+git clone https://github.com/almasaeed2010/AdminLTE.git v1
+git clone https://github.com/almasaeed2010/AdminLTE.git adminlte
+
+
+https://www.npmjs.com/package/adminlte-reactjs
+
 # ReactJS-AdminLTE
 
 [![npm version](https://badge.fury.io/js/adminlte-reactjs.svg)](https://badge.fury.io/js/adminlte-reactjs)

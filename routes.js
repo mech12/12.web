@@ -5,7 +5,7 @@ function initialize(app){
 	//Setting up an event listener for GET request to '/' 
 	app.get('/', function(req, res){ 
 		console.log('request to / received');
-        res.render('dashboard.html');		
+        res.redirect('v1/index.html');		
 	});
 
 	//Routes for rendering original adminlte pages
@@ -22,6 +22,9 @@ function initialize(app){
     /*Routes for rendering pages in reactjs.
     After creating a page in react, define a route for it here 
     */
+    app.get('/dashboard.html', function(req, res){
+        res.render('dashboard.html');
+    });
 
     app.get('/widgets.html', function(req, res){
         res.render('widgets.html');
