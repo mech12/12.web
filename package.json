@@ -39,7 +39,7 @@
     "style-loader": "^0.20.2",
     "velocity-animate": "^1.4.0",
     "webpack": "^4.0.1",
-    "webpack-cli": "^2.0.10",
+    "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10",
     "webpack-raphael": "^2.1.4"
   },
