@@ -1,10 +1,11 @@
 
+
 // Register `phoneList` component, along with its associated controller and template
 angular.
 module('App12ships').
-component('indexRightSidebar12', { 
+component('indexRightSidebarHomeTab', { 
 
-    templateUrl: 'index-right-sidebar12.html',
+    templateUrl: 'index-right-sidebar-home-tab.html',
     controller: function () {
         var ctrl = this;
     }

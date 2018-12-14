@@ -1,7 +1,7 @@
 
 // Register `phoneList` component, along with its associated controller and template
 angular.
-module('phonecatApp').
+module('App12ships').
 component('indexMainContent', { // `<index-main-content>` element.
 
     templateUrl: 'index-main-content.html',
