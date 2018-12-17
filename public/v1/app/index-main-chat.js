@@ -2,9 +2,9 @@
 // Register `phoneList` component, along with its associated controller and template
 angular.
 module('App12ships').
-component('indexMainContent', { // `<index-main-content>` element.
+component('indexMainChat', { 
 
-    templateUrl: 'index-main-content.html',
+    templateUrl: 'index-main-chat.html',
     controller: function () {
         var ctrl = this;
     }

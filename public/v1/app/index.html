@@ -29,28 +29,26 @@
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini" ng-controller="Ctrl12ships">
+    <app></app>
     <div class="wrapper">
-        <index-header12/>
+        <index-header></index-header>
         <div>
-            <!-- Left side column. contains the logo and sidebar 
-  -->
-            <index-sidebar/>
+            <index-sidebar></index-sidebar>
         </div>
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-                <h1>
-                  12Ships
-                  <small>Chatting Page</small>
-                </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Chat</li>
+                    <li class="active">{{g_G.path_endpoint}}</li>
                 </ol>
             </section>
             <!-- Main content -->
-            <index-main-content />
+            <section class="content" id='main_content'>
+                <index-user-info ng-if='isShowPage("index-user-info")' ></index-user-info>
+                <index-main-chat ng-if='isShowPage("index-main-chat")'></index-main-chat>
+            </section>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
@@ -80,13 +78,13 @@
     <script src="../dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="../dist/js/demo.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>    
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
     <script src="index.js"></script>
     <script src="index-header.js"></script>
+    <script src="index-user-info.js"></script>
     <script src="index-sidebar.js"></script>
     <script src="index-sidebar-right.js"></script>
-    <script src="index-main-content.js"></script>
+    <script src="index-main-chat.js"></script>
 </body>
 <script>
 </script>
