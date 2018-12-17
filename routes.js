@@ -5,7 +5,7 @@ function initialize(app){
 	//Setting up an event listener for GET request to '/' 
 	app.get('/', function(req, res){ 
 		console.log('request to / received');
-        res.redirect('v1/pages/12ships.html');		
+        res.redirect('v1/app/index.html');		
 	});
 
 	//Routes for rendering original adminlte pages

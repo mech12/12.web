@@ -7,5 +7,6 @@ component('indexHeader', { // This name is what AngularJS uses to match to the `
 
     controller: function() {
         var ctrl = this;
+        ctrl.g_G = g_G;
     }
 });

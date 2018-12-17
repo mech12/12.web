@@ -33,7 +33,7 @@
     <div class="wrapper">
         <index-header></index-header>
         <div>
-            <index-sidebar></index-sidebar>
+            <index-sidebar ng-if='g_G.isLogin'></index-sidebar>
         </div>
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -46,8 +46,11 @@
             </section>
             <!-- Main content -->
             <section class="content" id='main_content'>
-                <index-user-info ng-if='g_G.pages["index-user-info"]' ></index-user-info>
+                <index-user-info ng-if='g_G.pages["index-user-info"]'></index-user-info>
                 <index-main-chat ng-if='g_G.pages["index-main-chat"]'></index-main-chat>
+                <window-login ng-if='g_G.pages["window-login"]'></window-login>
+                <window-register ng-if='g_G.pages["window-register"]'></window-register>
+                <window-reset-passwd ng-if='g_G.pages["window-reset-passwd"]'></window-reset-passwd>
             </section>
             <!-- /.content -->
         </div>
@@ -77,14 +80,28 @@
     <!-- AdminLTE App -->
     <script src="../dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
+    <script src="g_G.js"></script>
     <script src="../dist/js/demo.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+    <script src="../plugins/iCheck/icheck.min.js"></script>
+    <script>
+    $(function() {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' /* optional */
+        });
+    });
+    </script>
     <script src="index.js"></script>
     <script src="index-header.js"></script>
     <script src="index-user-info.js"></script>
     <script src="index-sidebar.js"></script>
     <script src="index-sidebar-right.js"></script>
     <script src="index-main-chat.js"></script>
+    <script src="./window/window-login.js"></script>
+    <script src="./window/window-reset-passwd.js"></script>
+    <script src="./window/window-register.js"></script>
 </body>
 <script>
 </script>
