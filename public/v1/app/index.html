@@ -46,8 +46,8 @@
             </section>
             <!-- Main content -->
             <section class="content" id='main_content'>
-                <index-user-info ng-if='isShowPage("index-user-info")' ></index-user-info>
-                <index-main-chat ng-if='isShowPage("index-main-chat")'></index-main-chat>
+                <index-user-info ng-if='g_G.pages["index-user-info"]' ></index-user-info>
+                <index-main-chat ng-if='g_G.pages["index-main-chat"]'></index-main-chat>
             </section>
             <!-- /.content -->
         </div>
