@@ -2,9 +2,9 @@
 // Register `phoneList` component, along with its associated controller and template
 angular.
 module('App12ships').
-component('indexSidebar12', { // `<index-sidebar>` element.
+component('indexSidebar', { // `<index-sidebar>` element.
 
-    templateUrl: 'index-sidebar12.html',
+    templateUrl: 'index-sidebar.html',
     controller: function () {
         this.phones = [{
             name: 'Nexus S',
