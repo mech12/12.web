@@ -1,92 +1,66 @@
-var g_G = {
-    isLogin:false,
-    locale: 'kr',
-    pages: {
-        'index-main-chat': false,
-        'index-user-info': false,
-        'window-login': true,
-        'window-register': false,
-        'window-reset-passwd': false,
-    },
-    user: {
-        _id: 'roy',
-    },
-    component: {
-
-    },
-
-};
-
-
-g_G.getString = function(str, locale) {
-    return str;
-}
-g_G.isMe = function(uid) {
-    return g_G.user._id == uid;
-}
-
-g_G.change_skin = function(cls) {
-    function store(name, val) {
-        if (typeof(Storage) !== "undefined") {
-            localStorage.setItem(name, val);
-        } else {
-            window.alert('Please use a modern browser to properly view this template!');
-        }
-    }
-
-    var my_skins = [
-        "skin-blue",
-        "skin-black",
-        "skin-red",
-        "skin-yellow",
-        "skin-purple",
-        "skin-green",
-        "skin-blue-light",
-        "skin-black-light",
-        "skin-red-light",
-        "skin-yellow-light",
-        "skin-purple-light",
-        "skin-green-light"
-    ];
-    $.each(my_skins, function(i) {
-        $("body").removeClass(my_skins[i]);
-    });
-
-    $("body").addClass(cls);
-    store('skin', cls);
-    return false;
-}
-
 //g_G.change_skin('skin-blue');
 //
 
 // Define the `App12ships` module
-g_G.App12ships = angular.module('App12ships', []);
-
-// Define the `Ctlr12ships` controller on the `App12ships` module
-g_G.App12ships.controller('Ctrl12ships', function Ctrl12ships($scope) {
-
-    $scope.g_G = g_G;
-    g_G.Ctrl12ships = $scope;
-    g_G.path_endpoint = g_G.getString('window-login');
-
-    $scope.isShowPage = function(page) {
-        return $scope.pageList[page] == true;
-    }
-
-    $scope.showPage = function(page) {
-        //if(g_G.user.lastLogin==null) return;
-        g_G.path_endpoint = page;
-
-        Object.keys(g_G.pages).forEach(k => {
-            if (k == page)
-                g_G.pages[k] = true;
-            else
-                g_G.pages[k] = false;
+g_G.App12ships = angular.module('App12ships', [
+    'ngRoute',
+]).
+config(['$routeProvider',
+    function config($routeProvider, $locationProvider) {
+        $routeProvider.
+        when('/regist', {
+            template: '<window-register></window-register>',
+        }).
+        when('/login', {
+            template: '<window-login></window-login>',
+        }).
+        when('/login', {
+            template: '<window-login></window-login>',
+        }).
+        when('/info', {
+            template: '<index-user-info></index-user-info>',
+        }).
+        when('/chat', {
+            template: '<index-main-chat></index-main-chat>',
+        }).
+        when('/reset_passwd', {
+            template: '<window-reset-passwd></window-reset-passwd>',
+        }).
+        otherwise({
+            redirectTo: '/login'
         });
     }
+]);
 
-    $scope.showPage('window-login');
+// Define the `Ctlr12ships` controller on the `App12ships` module
+g_G.App12ships.controller('Ctrl12ships', function Ctrl12ships($scope, $route, $routeParams, $location) {
+        $scope.$route = $route;
+        $scope.$location = $location;
+        $scope.$routeParams = $routeParams;
 
-});
+        $scope.g_G = g_G;
+        g_G.Ctrl12ships = $scope;
+        g_G.path_endpoint = g_G.getString('window-login');
 
+        g_G.routeGoto = function(path){
+            g_G.path_endpoint = path;
+            $location.path( path );
+        }
+
+        g_G.http_eCmd('GET', 'eSERVER_INFO', {}, (err, ret) => {
+            if (err) return;
+            g_G.SERVICE_MODE = ret.SERVICE_MODE;
+            g_G.routeGoto('/chat');
+        });
+
+
+    })
+    .controller('RegistController', function($scope, $routeParams) {
+        $scope.name = 'RegistController';
+        $scope.params = $routeParams;
+    })
+
+    .controller('LoginController', function($scope, $routeParams) {
+        $scope.name = 'LoginController';
+        $scope.params = $routeParams;
+    });

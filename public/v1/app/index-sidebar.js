@@ -10,7 +10,7 @@ component('indexSidebar', { // `<index-sidebar>` element.
         ctrl.loadPage = function(page) {
             //console.log('loadPage page =', page);
 
-            g_G.Ctrl12ships.showPage(page);
+            g_G.routeGoto(page);
 
             /*
             if (page.href) {

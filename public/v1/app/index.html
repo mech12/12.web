@@ -26,12 +26,22 @@
   <![endif]-->
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini" ng-controller="Ctrl12ships">
     <app></app>
     <div class="wrapper">
-        <index-header></index-header>
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="" class="logo">
+              <!-- mini logo for sidebar mini 50x50 pixels -->
+              <span class="logo-mini"><b>L</b>ive</span>
+              <!-- logo for regular state and mobile devices -->
+              <span class="logo-lg"><b>Live</b>12Ships</span>
+            </a>
+            <index-header ng-if='g_G.isLogin'></index-header>
+        </header>
         <div>
             <index-sidebar ng-if='g_G.isLogin'></index-sidebar>
         </div>
@@ -44,13 +54,18 @@
                     <li class="active">{{g_G.path_endpoint}}</li>
                 </ol>
             </section>
+
+            
             <!-- Main content -->
             <section class="content" id='main_content'>
+                <div ng-view></div>
+                <!--
                 <index-user-info ng-if='g_G.pages["index-user-info"]'></index-user-info>
                 <index-main-chat ng-if='g_G.pages["index-main-chat"]'></index-main-chat>
                 <window-login ng-if='g_G.pages["window-login"]'></window-login>
                 <window-register ng-if='g_G.pages["window-register"]'></window-register>
                 <window-reset-passwd ng-if='g_G.pages["window-reset-passwd"]'></window-reset-passwd>
+            -->
             </section>
             <!-- /.content -->
         </div>
@@ -64,6 +79,9 @@
         </footer>
         <index-sidebar-right />
         <!--
+            <p><span id="status">status ok !</span></p>
+
+
           <div ng-include="'index-right-sidebar-home-tab.html'">
           </div>
         -->
@@ -80,9 +98,9 @@
     <!-- AdminLTE App -->
     <script src="../dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="g_G.js"></script>
     <script src="../dist/js/demo.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular-route.js"></script>
     <script src="../plugins/iCheck/icheck.min.js"></script>
     <script>
     $(function() {
@@ -93,6 +111,10 @@
         });
     });
     </script>
+    <!-- https://github.com/CodeSeven/toastr -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="g_G.js"></script>
+    <script src="g_G_util.js"></script>
     <script src="index.js"></script>
     <script src="index-header.js"></script>
     <script src="index-user-info.js"></script>

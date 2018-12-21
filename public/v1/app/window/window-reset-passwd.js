@@ -7,6 +7,6 @@ component('windowResetPasswd', { // This name is what AngularJS uses to match to
 
     controller: function() {
         var ctrl = this;
-		ctrl.showPage = g_G.Ctrl12ships.showPage;    
+        ctrl.g_G = g_G;
     }
 });
